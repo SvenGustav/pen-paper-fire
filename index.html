@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pen, Paper, Fire</title>
+<meta name="description" content="A two-player line duel on a sheet of paper. Draw, dodge, jump, and set the page alight.">
+<style>
+  :root { --desk: #d6c9b1; --ink: #1818e0; --paper: #fdfdfb; }
+  html, body { height: 100%; margin: 0; background: var(--paper); color: var(--ink); overflow: hidden; }
+  body { display: grid; place-items: center; }
+  canvas {
+    display: block;
+    width: min(100vw, 160vh);
+    height: min(100vh, 62.5vw);
+    cursor: default;
+    outline: none;
+  }
+  canvas:focus-visible { outline: 3px dashed var(--ink); outline-offset: -6px; }
+  ::selection { background: var(--ink); color: var(--paper); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  noscript { color: var(--paper); font: 18px/1.4 Georgia, serif; padding: 2rem; }
+</style>
+</head>
+<body>
+<canvas id="game" width="1920" height="1200" tabindex="0" aria-describedby="how"></canvas>
+<p id="how" class="sr">
+  Pen, Paper, Fire. Two players share one keyboard. Pen steers with A and D and holds W to jump.
+  Pencil steers with the left and right arrows and holds the up arrow to jump. Touching ink knocks you out. Jumping carries you over lines. Driving over the match starts a fire somewhere on the page: it burns lines away and knocks out anyone inside it until it dies down.
+  Space starts and continues, Escape pauses, M mutes all sound, N turns the music off.
+</p>
+<noscript>This game needs JavaScript.</noscript>
+<script src="sketch.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
